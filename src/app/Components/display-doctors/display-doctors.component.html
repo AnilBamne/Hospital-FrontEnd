@@ -1,0 +1,20 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <div fxFlex="70" class="card-content">
+        <div *ngFor="let data of listOfDocs">
+            <mat-card class="card">
+                <mat-card-title class="card-title">
+                    <img src="../../../assets/doc1.jpg">
+                </mat-card-title>
+                <mat-card-content class="card-body">
+                    <div class="note-desc" >Dr.{{data.doctorName}}</div>
+                    <!-- <div class="note-desc" >DrId.{{data.doctorId}}</div> -->
+                    <div> {{data.doctorSpecialization}}</div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div>
+            
+        </div>
+    </div>
+   
+</div>
