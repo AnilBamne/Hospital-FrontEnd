@@ -73,7 +73,7 @@ showPassword=true;
             duration:2000,
             verticalPosition:'bottom'
           })
-          this.route.navigateByUrl("/patient")
+          this.route.navigateByUrl("/patients/getdoctors")
         })
       }
       else if(res.data==3){
@@ -88,7 +88,7 @@ showPassword=true;
             verticalPosition:'bottom'
           })
 
-          this.route.navigateByUrl("/admin")
+          this.route.navigateByUrl("/admin/appointments")
 
         })
       }

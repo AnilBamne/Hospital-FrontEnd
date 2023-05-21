@@ -30,4 +30,8 @@ export class AdminDashboardComponent implements OnInit {
     console.log(event.target.value);
     this.data.outgoingData(event.target.value);
   }
+
+  Clear(){
+    
+  }
 }

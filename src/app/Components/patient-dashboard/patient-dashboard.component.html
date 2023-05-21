@@ -35,16 +35,13 @@
             <mat-sidenav #sidenav opened="true" mode="side" >
                 <mat-nav-list>
                     <!-- <button> <img class="list-icons" src="../../../assets/lightbulb_black_24dp.svg" >Notes</button> -->
-                    <a mat-list-item routerLink="./appointments" class="icons">Appointments</a>
                     <a mat-list-item routerLink="./getdoctors" class="icons">Doctors</a>
-                    <a mat-list-item routerLink="./note" class="icons">Patients</a>
+                    <a mat-list-item routerLink="./#" class="icons">Medication</a>
                 </mat-nav-list>
             </mat-sidenav>
             <mat-sidenav-content >
-                <div class="side-content">
-                    
+                <div class="side-content"> 
                     <router-outlet> </router-outlet>
-                 
                 </div>
             </mat-sidenav-content>
        </mat-sidenav-container>

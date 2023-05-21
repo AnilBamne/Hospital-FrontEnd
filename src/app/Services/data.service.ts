@@ -13,7 +13,7 @@ appointmentList:any
   incommingData=this.messageSource.asObservable();
 
   outgoingData(message:any){         //updating value of messagesource
-    console.log(message);
+    console.log("Serch for : ",message);
     this.messageSource.next(message);
   }
 }

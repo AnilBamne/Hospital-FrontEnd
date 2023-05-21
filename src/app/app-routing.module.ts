@@ -7,7 +7,9 @@ import { RegisterPatientComponent } from './Components/register-patient/register
 import { GetdoctorsComponent } from './Components/getdoctors/getdoctors.component';
 import { TakeappointmentComponent } from './Components/takeappointment/takeappointment.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
-import { DisplayDoctorsComponent } from './Components/display-doctors/display-doctors.component';
+import { DoctorsComponent } from './Components/doctors/doctors.component';
+import { PatientDashboardComponent } from './Components/patient-dashboard/patient-dashboard.component';
+import { PatientsComponent } from './Components/patients/patients.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -17,18 +19,18 @@ const routes: Routes = [
   
   {path:'admin',component:AdminDashboardComponent,
   children:[
-    
     {path:'appointments',component:GetappointmentsComponent},
-    {path:'doctors',component:DisplayDoctorsComponent},
-
+    {path:'doctorslist',component:DoctorsComponent},
+    {path:'patientslist',component:PatientsComponent}
+  ]},
+  {path:'patients',component:PatientDashboardComponent,
+  children:[
+    {path:'getdoctors',component:GetdoctorsComponent},
     {path:'takeappointment',component:TakeappointmentComponent}
   ]},
-  {path:'patient',component:AdminDashboardComponent,
-  children:[
-    {path:'getdoctors',component:GetdoctorsComponent}
-  ]},
 
-  {path:'doctors',component:DisplayDoctorsComponent}
+  
+  {path:'patientslist',component:PatientsComponent}
 ];
 
 @NgModule({

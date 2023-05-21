@@ -20,7 +20,7 @@
                 <div class="search-box">
                     <img class="search-img" src="../../../assets/Icons/search_black_24dp.svg">
                     <input class="search-input" placeholder="Search" (keyup)="Search($event)"> 
-                    <button mat-button class="clear-btn"><img  class="search-img" src="../../../assets/Icons/clear_black_24dp.svg"></button>
+                    <button mat-button class="clear-btn" (click)="Clear()"><img  class="search-img" src="../../../assets/Icons/clear_black_24dp.svg"></button>
                 </div>
                 <div class="right">
                     <div class="btn">
@@ -36,8 +36,8 @@
                 <mat-nav-list>
                     <!-- <button> <img class="list-icons" src="../../../assets/lightbulb_black_24dp.svg" >Notes</button> -->
                     <a mat-list-item routerLink="./appointments" class="icons">Appointments</a>
-                    <a mat-list-item routerLink="./getdoctors" class="icons">Doctors</a>
-                    <a mat-list-item routerLink="./note" class="icons">Patients</a>
+                    <a mat-list-item routerLink="./doctorslist" class="icons">Doctors</a>
+                    <a mat-list-item routerLink="./patientslist" class="icons">Patients</a>
                 </mat-nav-list>
             </mat-sidenav>
             <mat-sidenav-content >

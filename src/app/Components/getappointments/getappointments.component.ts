@@ -43,6 +43,7 @@ export class GetappointmentsComponent implements OnInit{
     this.adminService.GetAppointments().subscribe((res:any)=>{
       this.dataService.appointmentList=res.data;
     })
+    location.reload();
   }
 
   

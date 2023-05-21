@@ -9,7 +9,10 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class PatientService {
   base=environment.baseurl;
-  constructor(private httpService:HttpService) { }
+  token:any
+  constructor(private httpService:HttpService) {
+    this.token=localStorage.getItem('token')
+   }
   Login(data:any){
     let header={
       headers:new HttpHeaders({
@@ -26,5 +29,15 @@ export class PatientService {
       })
     }
     return this.httpService.postService(this.base+`Patient/Register`,data,false,header);
+  }
+
+  GetAllDocs(){
+    let header={
+      headers:new HttpHeaders({
+        'content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.getService(this.base+`Patient/GetAllDoctors`,true,header)
   }
 }

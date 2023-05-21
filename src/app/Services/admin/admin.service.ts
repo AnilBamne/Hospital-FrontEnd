@@ -40,6 +40,15 @@ export class AdminService {
     }
     return this.httpService.getService(this.base+`Admin/GetAllDocs`,true,header)
   }
+  GetAllPatients(){
+    let header={
+      headers:new HttpHeaders({
+        'content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.getService(this.base+`Admin/GetAllPatients`,true,header)
+  }
   GetAppointments(){
     let header={
       headers:new HttpHeaders({
@@ -57,5 +66,25 @@ export class AdminService {
       })
     }
     return this.httpService.deletService(this.base+`Admin/DeleteAppointment?Id=`+Id,true,header)
+  }
+
+  AllowAccess(Id:any){
+    let header={
+      headers:new HttpHeaders({
+        'content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.putService(this.base+`Admin/AllowAccess?docId=`+Id,{},true,header)
+  }
+
+  RemoveAccess(Id:any){
+    let header={
+      headers:new HttpHeaders({
+        'content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.putService(this.base+`Admin/RemoveAccess?docId=`+Id,{},true,header)
   }
 }

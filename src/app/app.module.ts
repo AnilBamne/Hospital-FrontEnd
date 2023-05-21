@@ -36,7 +36,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FilterPipe } from './Pipe/filter.pipe';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { PatientDashboardComponent } from './Components/patient-dashboard/patient-dashboard.component';
-import { DisplayDoctorsComponent } from './Components/display-doctors/display-doctors.component';
+import { DoctorsComponent } from './Components/doctors/doctors.component';
+import { PatientsComponent } from './Components/patients/patients.component';
+import { PatientfilterPipe } from './Pipe/patientfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { DisplayDoctorsComponent } from './Components/display-doctors/display-do
     FilterPipe,
     AdminDashboardComponent,
     PatientDashboardComponent,
-    DisplayDoctorsComponent
+    DoctorsComponent,
+    PatientsComponent,
+    PatientfilterPipe
     ],
   imports: [
     BrowserModule,
