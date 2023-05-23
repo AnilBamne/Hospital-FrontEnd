@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AppointmentService } from 'src/app/Services/appointment/appointment.service';
 import { DataService } from 'src/app/Services/data.service';
 
@@ -12,7 +13,7 @@ export class TakeappointmentComponent implements OnInit {
   appointmentForm!:FormGroup
 docData:any
 defaultValue = { hour: 13, minute: 30 };
-  constructor(private dataService:DataService,private frombuilder:FormBuilder,private appointmentService:AppointmentService) { }
+  constructor(private dataService:DataService,private frombuilder:FormBuilder,private appointmentService:AppointmentService,private popup:MatSnackBar) { }
 
   ngOnInit(): void {
     this.docData=this.dataService.doctorList;
@@ -38,6 +39,10 @@ defaultValue = { hour: 13, minute: 30 };
     this.appointmentService.CreateAppointment(data).subscribe((response:any)=>{
       console.log(response.message);
       console.log(response.data)
+      this.popup.open("Appointment Created  !!!",'',{
+        duration:2000,
+        verticalPosition:'bottom'
+      })
     })
   }
 }

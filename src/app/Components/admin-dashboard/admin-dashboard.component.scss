@@ -8,7 +8,7 @@ img{
 .toolbar{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     background-color: white(143, 229, 254);
 }
@@ -22,12 +22,16 @@ img{
     flex-direction: row;
 }
 .logo{
-    width: 10vw;
-    height: 10vh;
+    width: 100px;
+    height: 80px;
     background: white;
 }
 .btn{
     padding: 20px;
+}
+.logout{
+    margin-left: 140px;
+
 }
 .btn :hover{
     background: rgb(138, 210, 210);

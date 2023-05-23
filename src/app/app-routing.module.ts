@@ -10,6 +10,8 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
 import { DoctorsComponent } from './Components/doctors/doctors.component';
 import { PatientDashboardComponent } from './Components/patient-dashboard/patient-dashboard.component';
 import { PatientsComponent } from './Components/patients/patients.component';
+import { DoctorDashboardComponent } from './Components/doctor-dashboard/doctor-dashboard.component';
+import { DocAppointmentsComponent } from './Components/doc-appointments/doc-appointments.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -27,6 +29,10 @@ const routes: Routes = [
   children:[
     {path:'getdoctors',component:GetdoctorsComponent},
     {path:'takeappointment',component:TakeappointmentComponent}
+  ]},
+  {path:'doctor',component:DoctorDashboardComponent,
+  children:[
+    {path:'appointments',component:DocAppointmentsComponent}
   ]},
 
   

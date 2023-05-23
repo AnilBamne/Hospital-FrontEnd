@@ -31,16 +31,7 @@ export class DoctorsComponent implements OnInit {
     })
   }
   //update status of doctor
-  ProvideAccess(Id:any){
-    this.adminService.AllowAccess(Id).subscribe((response:any)=>{
-      console.log("Doctor has access to login now",response.message)
-    })
-    location.reload();
-  }
-  RemoveAccess(Id:any){
-    this.adminService.RemoveAccess(Id).subscribe((response:any)=>{
-      console.log("Doctor access is removed now",response.message)
-    })
-    location.reload();
+  RefreshEvent(event:any){
+    this.GetAllDoctors();
   }
 }

@@ -8,7 +8,7 @@ img{
 .toolbar{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     background-color: white(143, 229, 254);
 }
@@ -33,9 +33,6 @@ img{
 }
 .btn{
     padding: 20px;
-}
-.logout{
-    margin-left: 100px;
 }
 .btn :hover{
     background: rgb(138, 210, 210);
@@ -83,6 +80,9 @@ flex-direction: column;
 .side-content{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: transparent;
+}
+.logout{
+margin-left: 100px;
 }

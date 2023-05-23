@@ -43,59 +43,68 @@ showPassword=true;
   // }
   
   OnSubmit(){
-    let data={
-      email:this.loginform.value.email,
-      password:this.loginform.value.password
+    if(this.loginform.valid){
+      let data={
+        email:this.loginform.value.email,
+        password:this.loginform.value.password
+      }
+      this.adminService.CheckUser(data).subscribe((res:any)=>{
+        if(res.data==1){
+          
+          console.log("User is a Doctor")
+          this.docService.Login(data).subscribe((response:any)=>{
+            console.log(response.message)
+            localStorage.setItem('token',response.data)
+            console.log("Doctor logged in")
+            this.popup.open('Doctor Login Successfull !!!','',{
+              duration:2000,
+              verticalPosition:'bottom'
+            })
+
+            this.route.navigateByUrl("/doctor/appointments")
+          })
+        }
+        else if(res.data==2){
+          console.log("User is a Patient")
+          this.patientService.Login(data).subscribe((response:any)=>{
+            console.log(response.message)
+            localStorage.setItem('token',response.data)
+            console.log("Patient logged in")
+            this.popup.open('Patient Login Successfull !!!','',{
+              duration:2000,
+              verticalPosition:'bottom'
+            })
+            this.route.navigateByUrl("/patients/getdoctors")
+          })
+        }
+        else if(res.data==3){
+          console.log("User is a Admin");
+          this.adminService.Login(data).subscribe((response:any)=>{
+            console.log(response.message);
+            localStorage.setItem('token',response.data)
+            console.log("Admin logged in")
+            //navigate to appointments
+            this.popup.open('Admin Login Successfull !!!','',{
+              duration:2000,
+              verticalPosition:'bottom'
+            })
+
+            this.route.navigateByUrl("/admin/appointments")
+
+          })
+        }
+        else{
+          console.log("Wrong input")
+        }
+      })
     }
-    this.adminService.CheckUser(data).subscribe((res:any)=>{
-      if(res.data==1){
-        
-        console.log("User is a Doctor")
-        this.docService.Login(data).subscribe((response:any)=>{
-          console.log(response.message)
-          localStorage.setItem('token',response.data)
-          console.log("Doctor logged in")
-          this.popup.open('Doctor Login Successfull !!!','',{
-            duration:2000,
-            verticalPosition:'bottom'
-          })
-
-          this.route.navigateByUrl("/home/getdoctors")
-        })
-      }
-      else if(res.data==2){
-        console.log("User is a Patient")
-        this.patientService.Login(data).subscribe((response:any)=>{
-          console.log(response.message)
-          localStorage.setItem('token',response.data)
-          console.log("Patient logged in")
-          this.popup.open('Patient Login Successfull !!!','',{
-            duration:2000,
-            verticalPosition:'bottom'
-          })
-          this.route.navigateByUrl("/patients/getdoctors")
-        })
-      }
-      else if(res.data==3){
-        console.log("User is a Admin");
-        this.adminService.Login(data).subscribe((response:any)=>{
-          console.log(response.message);
-          localStorage.setItem('token',response.data)
-          console.log("Admin logged in")
-          //navigate to appointments
-          this.popup.open('Admin Login Successfull !!!','',{
-            duration:2000,
-            verticalPosition:'bottom'
-          })
-
-          this.route.navigateByUrl("/admin/appointments")
-
-        })
-      }
-      else{
-        console.log("Wrong input")
-      }
-    })
+    else{
+      this.popup.open('Please Enter Valid Email and Password !!!','',{
+        duration:2000,
+        verticalPosition:'bottom'
+      })
+      console.log("Please Enter Valid Credentials")
+    }
   }
 
   ShowPass(){

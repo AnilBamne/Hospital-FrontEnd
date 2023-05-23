@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { DoctorService } from 'src/app/Services/doctor/doctor.service';
 
@@ -10,7 +11,7 @@ import { DoctorService } from 'src/app/Services/doctor/doctor.service';
 })
 export class RegisterDoctorComponent implements OnInit {
   RegisterDocForm!:FormGroup;
-  constructor(private formBuilder:FormBuilder,private docterService:DoctorService,private route:Router) { }
+  constructor(private formBuilder:FormBuilder,private docterService:DoctorService,private route:Router,private popup:MatSnackBar) { }
 
   ngOnInit(): void {
     this.RegisterDocForm=this.formBuilder.group({
@@ -35,6 +36,11 @@ export class RegisterDoctorComponent implements OnInit {
       console.log(response.message);
       console.log(response.data);
       this.route.navigateByUrl("/home")
+      this.popup.open('Doctor Registered Successfull !!!','',{
+        duration:2000,
+        verticalPosition:'bottom'
+      })
     })
+   
   }
 }

@@ -8,7 +8,10 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class DoctorService {
 base=environment.baseurl;
-  constructor(private httpService:HttpService) { }
+token:any
+  constructor(private httpService:HttpService) {
+    this.token=localStorage.getItem('token');
+   }
 
   //login method
   Login(data:any){
@@ -27,4 +30,14 @@ base=environment.baseurl;
     }
     return this.httpService.postService(this.base+`Doctor/Register`,data,false,header);
   }
+  GetAppointments(){
+      let header={
+        headers:new HttpHeaders({
+          'content-type':'application/json',
+          'authorization':'Bearer '+this.token
+        })
+      }
+      return this.httpService.getService(this.base+`Doctor/GetAppointments`,true,header);
+    }
+  
 }

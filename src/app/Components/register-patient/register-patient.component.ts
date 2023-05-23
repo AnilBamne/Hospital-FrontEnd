@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { PatientService } from 'src/app/Services/patient/patient.service';
 
@@ -10,7 +11,7 @@ import { PatientService } from 'src/app/Services/patient/patient.service';
 })
 export class RegisterPatientComponent implements OnInit {
   registerorm!:FormGroup
-  constructor(private formbuilder:FormBuilder,private patService:PatientService,private route:Router) { }
+  constructor(private formbuilder:FormBuilder,private patService:PatientService,private route:Router,private popup:MatSnackBar) { }
 
 // Applying validations 
   ngOnInit(): void {
@@ -44,6 +45,10 @@ export class RegisterPatientComponent implements OnInit {
         console.log("Patient registered successfully")
         console.log(response.data)
         this.route.navigateByUrl("/home")
+        this.popup.open("Patient Registered Successfully !!!",'',{
+          duration:2000,
+          verticalPosition:'bottom'
+        })
     })
   }
 

@@ -39,6 +39,11 @@ import { PatientDashboardComponent } from './Components/patient-dashboard/patien
 import { DoctorsComponent } from './Components/doctors/doctors.component';
 import { PatientsComponent } from './Components/patients/patients.component';
 import { PatientfilterPipe } from './Pipe/patientfilter.pipe';
+import { DisplayDocComponent } from './Components/display-doc/display-doc.component';
+import { DisplayAppointmentsComponent } from './Components/display-appointments/display-appointments.component';
+import { DoctorDashboardComponent } from './Components/doctor-dashboard/doctor-dashboard.component';
+import { UpdateAppointmentComponent } from './Components/update-appointment/update-appointment.component';
+import { DocAppointmentsComponent } from './Components/doc-appointments/doc-appointments.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +59,12 @@ import { PatientfilterPipe } from './Pipe/patientfilter.pipe';
     PatientDashboardComponent,
     DoctorsComponent,
     PatientsComponent,
-    PatientfilterPipe
+    PatientfilterPipe,
+    DisplayDocComponent,
+    DisplayAppointmentsComponent,
+    DoctorDashboardComponent,
+    UpdateAppointmentComponent,
+    DocAppointmentsComponent
     ],
   imports: [
     BrowserModule,

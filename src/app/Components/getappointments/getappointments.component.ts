@@ -12,6 +12,7 @@ import { DataService } from 'src/app/Services/data.service';
 export class GetappointmentsComponent implements OnInit{
   
   appointmentdata:any
+  list:any
   constructor(private appointmentService:AppointmentService,private adminService:AdminService,private dataService:DataService) { }
 
   ngOnInit(): void {
@@ -23,28 +24,14 @@ export class GetappointmentsComponent implements OnInit{
     this.adminService.GetAppointments().subscribe((response:any)=>{
       console.log(response.message);
       
-      this.appointmentdata=response.data;
+      this.list=response.data;
       console.log(this.appointmentdata);
       console.log("----***----")
+      this.appointmentdata=this.list
+      console.log(this.list)
     })
   }
- 
-  // applyFilter(event: Event) {
-  //   const filterValue = (event.target as HTMLInputElement).value;
-  //   this.dataSource.filter = filterValue.trim().toLowerCase();
-  // }
-
-  Delete(appointmentId:any){
-    console.log(appointmentId)
-    this.adminService.DeleteAppointment(appointmentId).subscribe((res:any)=>{
-      console.log("Appointment deleted",res.message);
-    })
-    
-    this.adminService.GetAppointments().subscribe((res:any)=>{
-      this.dataService.appointmentList=res.data;
-    })
-    location.reload();
+  RefreshEvent(event:any){
+    this.getAppointments();
   }
-
-  
 }

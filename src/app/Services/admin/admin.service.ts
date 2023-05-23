@@ -20,7 +20,7 @@ export class AdminService {
         'content-type':'application/json'
       })
     }
-    return this.httpService.postService(this.base+`Admin/login?email=`+data.email+`&password=`+data.password,{},false,header);
+    return this.httpService.postService(this.base+`Admin/login`,data,false,header);
   }
   //Check who is logging in
   CheckUser(data:any){
